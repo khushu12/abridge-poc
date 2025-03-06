@@ -1,4 +1,5 @@
 # abridge-poc
+Note: Develop branch has prebuilt dirs. Use main branch for brand new setup.
 
 The project is build assuming it will be running on Ubuntu 22 or greater box.
 
