@@ -544,7 +544,9 @@ resource "google_container_cluster" "gke" {
 
   network    = var.vpc_id
   subnetwork = var.subnet_ids[0]
+  
   delete_protection = false
+  
   ip_allocation_policy {
     cluster_ipv4_cidr_block  = var.cluster_ipv4_cidr
     services_ipv4_cidr_block = var.services_ipv4_cidr
@@ -582,7 +584,7 @@ resource "google_container_cluster" "gke" {
 
   # Enable Managed Prometheus
   monitoring_config {
-    enable_components = ["SYSTEM_COMPONENTS", "WORKLOADS"]
+    enable_components = ["SYSTEM_COMPONENTS"]
     managed_prometheus {
       enabled = true
     }
@@ -590,7 +592,7 @@ resource "google_container_cluster" "gke" {
 
   # Enable logging
   logging_config {
-    enable_components = ["SYSTEM_COMPONENTS", "WORKLOADS"]
+    enable_components = ["SYSTEM_COMPONENTS"]
   }
 
   # Enable Horizontal Pod Autoscaling
